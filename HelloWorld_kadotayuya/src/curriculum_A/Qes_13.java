@@ -8,17 +8,17 @@ public class Qes_13 {
 		・バイト型・短整数型・整数型・長整数型・単精度浮動小数点数型・倍精度浮動小数点数型
 		・文字型・文字列型・ブーリアン型
 		それぞれのローカル変数をローカル内でそれぞれの初期値を代入し初期化してください*/
-		byte i;
-		short j;
-		int k;
-		long l;
-		float m ; 
-		double n;
-		char o;
-		String p;
-		boolean q;
-		//ローカル変数を宣言
+		byte i = 0;
+		short j = 0;
+		int k = 0;
+		long l = 0;
+		float m = 0f; 
+		double n =0;
+		char o = 0;
+		String p = "";
+		boolean q = true; 
 		
+		//ローカル変数を宣言	
 		i = 10;
 		j = 100;
 		k = 1000;
@@ -27,7 +27,6 @@ public class Qes_13 {
 		n = 10.5;
 		o = 'a';
 		p = "ハロー";
-		q = true;
 		//それぞれの変数に値を代入
 		
         /*下記の通りにコンソール出力されるようにしてください

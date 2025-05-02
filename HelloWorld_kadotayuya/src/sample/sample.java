@@ -22,6 +22,16 @@ public class sample {
 		} else {
 		System.out.println(String.format("num[][]に%sは存在しません", SEARCH_NUMBER));
 		}
+		
+		float ans = 7 / 6;
+		System.out.println(ans);
+		
+		for (int i = 1; i < 10; i++){ // (初期化式; 条件式; 変化式)
+			System.out.println(i); // iが10より小さい場合に繰り返し実行する処理
+			}
+		for (int i = 1; i < 10; ++i){ // (初期化式; 条件式; 変化式)
+			System.out.println(i); // iが10より小さい場合に繰り返し実行する処理
+			}
 	}
 
 }
