@@ -15,7 +15,7 @@ public class Qes_13 {
 		float m = 0.0f; 
 		double n = 0.0d;
 		char o = '\u0000';
-		String p = "null";
+		String p = null;
 		boolean q = false; 
 		
 		//ローカル変数を宣言	
