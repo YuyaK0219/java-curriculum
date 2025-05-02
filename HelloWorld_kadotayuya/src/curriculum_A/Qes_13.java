@@ -12,11 +12,11 @@ public class Qes_13 {
 		short j = 0;
 		int k = 0;
 		long l = 0;
-		float m = 0f; 
-		double n =0;
-		char o = 0;
-		String p = "";
-		boolean q = true; 
+		float m = 0.0f; 
+		double n = 0.0d;
+		char o = '\u0000';
+		String p = "null";
+		boolean q = false; 
 		
 		//ローカル変数を宣言	
 		i = 10;
@@ -114,7 +114,7 @@ public class Qes_13 {
 		System.out.println("整数型の身長: " + parsedHeight);
 		
 		/*12で変換した【年齢・身長】で【年齢が25もしくは身長が160以上】であればtrueを出力してください*/
-		System.out.println("年齢・身長】で【年齢が25もしくは身長が160以上】: " + (parsedAge >= 25 || parsedHeight >= 160));
+		System.out.println("【年齢・身長】で【年齢が25もしくは身長が160以上】: " + (parsedAge >= 25 || parsedHeight >= 160));
 		
 		
 		/*8で使用した変数【年齢・身長・体重】の数値を和算で自己代入し、下記の通りコンソールに出力してください*/
