@@ -37,7 +37,6 @@ public class Qes1_3 {
 
         System.out.println();
         
-        
         /*
         じゃんけんのシステムを下記の条件で作成してください	
         ・「0はグー、1：チョキ、2：パー」とすること	
@@ -76,11 +75,10 @@ public class Qes1_3 {
             String[] hands = {"グー", "チョキ", "パー"};
 
             System.out.println(username + "の手は「" + hands[playerHand] + "」");
-            System.out.println("相手の手は「" + hands[enemyHand] + "」");
-            System.out.println();
+            System.out.println("相手の手は「" + hands[enemyHand] + "」¥n");
 
             if (playerHand == enemyHand) {  //あいこの時
-                System.out.println("DRAW あいこ もう一回しましょう！");
+                System.out.println("DRAW あいこ もう一回しましょう！¥n");
                 continue;
             }
 
