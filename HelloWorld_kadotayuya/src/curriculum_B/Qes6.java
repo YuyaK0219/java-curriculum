@@ -4,7 +4,7 @@ import java.util.ArrayList; //	リスト
 import java.util.List;
 import java.util.Random; //	ランダムな数値生成
 import java.util.Scanner; //	ユーザー入力取得
-
+ 
 public class Qes6 {
 	public static void main(String[] args) {
 		System.out.println("知りたい商品を「、」で区切って入力してください");

@@ -1,7 +1,7 @@
 package curriculum_B;
 
 public class Qes4 {
-
+ 
 	public static void main(String[] args) {
 		// 外側のfor文：1〜9の段を順番に処理（縦方向）
 		for (int i = 1; i <= 9; i++) {
