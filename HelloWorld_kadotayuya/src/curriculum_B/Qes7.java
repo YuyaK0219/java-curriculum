@@ -1,7 +1,7 @@
 package curriculum_B;
 
 import java.util.Scanner;
- 
+
 public class Qes7 {
 	public static void main(String[] args) {
 		// ユーザー入力用のScannerを作成
