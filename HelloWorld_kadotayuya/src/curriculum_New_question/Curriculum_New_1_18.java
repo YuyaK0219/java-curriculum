@@ -21,7 +21,7 @@ public class Curriculum_New_1_18 {
 	}
 
 	// Q4：Q2をオーバーロードして引数を小数2つに変更し、引数同士を和算しコンソールに出力してください。
-	public static void add(double a, double b) {
+	public static void multiply(double a, double b) { // 修正点
 		System.out.println(a + b);
 	}
 
@@ -71,7 +71,7 @@ public class Curriculum_New_1_18 {
 		int[] sampleArray = { 22, 56, 56 };
 		printArray(sampleArray);
 		// Q4
-		add(4.7, 8.8);
+		multiply(4.7, 8.8); // 修正点
 		// Q5
 		int[] randomValues = generateRandomNumbers(9);
 		// Q6
