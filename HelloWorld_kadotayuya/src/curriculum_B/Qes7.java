@@ -57,6 +57,16 @@ public class Qes7 {
 			double subjectAvg = subjectTotal / (double) count;
 			System.out.println("『" + subjects[j] + "』の平均点は " + subjectAvg + " 点です");
 		}
+		// ★追加：全体平均点を計算して表示
+		int totalSum = 0;
+		for (int i = 0; i < count; i++) {
+			for (int j = 0; j < subjects.length; j++) {
+				totalSum += scores[i][j];
+			}
+		}
+		double totalAvg = totalSum / (double)(count * subjects.length);
+		System.out.println("\n全体の平均点は " + totalAvg + " 点です"); // 
+
 		// Scannerを閉じてリソースを解放
 		scanner.close();
 	}
