@@ -1,7 +1,7 @@
 package curriculum_C;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatter; 
 
 public class Animal {
 	public static void main(String[] args) {
