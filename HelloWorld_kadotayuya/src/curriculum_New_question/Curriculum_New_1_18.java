@@ -41,7 +41,7 @@ public class Curriculum_New_1_18 {
 		}
 		return result;
 	}
-
+	
 	// Q6：引数にQ5で作成したメソッドの返り値を受け取り、受け取った配列の要素の平均値をコンソールに出力するメソッドを作成してください。
 	// ※小数点以下も表示されるようにしてください。
 	public static double average(int[] array) {
@@ -64,7 +64,7 @@ public class Curriculum_New_1_18 {
 	public static void main(String[] args) {
 		// 作成したメソッドをここで呼び出してください
 		// Q1
-		printMessage("Hello JavaSE", 49);
+		printMessage("Hello JavaSE", 11);
 		// Q2
 		multiply(20, 7);
 		// Q3
