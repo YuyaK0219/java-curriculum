@@ -1,4 +1,4 @@
-package AnimalGetterSetter;
+package curriculum1_23;
 
 public class Encapsulation {
 
