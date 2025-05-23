@@ -1,4 +1,4 @@
-package logic; 
+package curriculum1_20.logic; 
 
 import java.time.LocalDateTime; // 現在の日時を取得するためのクラス
 import java.time.format.DateTimeFormatter; // 日時を指定した書式で表示するためのクラス

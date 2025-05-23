@@ -1,6 +1,6 @@
-package exec;
+package curriculum1_20.exec;
 
-import logic.MessagePrinter; // logicパッケージのMessagePrinterクラスを使うためのimport
+import curriculum1_20.logic.MessagePrinter;
 
 public class Main { // 実行用のクラス（エントリーポイント）
 	public static void main(String[] args) { // Javaアプリケーションの開始地点（mainメソッド）
