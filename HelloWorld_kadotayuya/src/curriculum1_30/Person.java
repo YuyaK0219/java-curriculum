@@ -22,7 +22,7 @@ public class Person {
     // BMIを計算して返すメソッド（戻り値：double）
     double bmi() {
         double rawBmi =  weight / (height * height);
-        return Math.floor(rawBmi * 1) / 1.0;
+        return Math.floor(rawBmi);
     }
 
     // 自己紹介とBMIを出力するメソッド（戻り値なし）
