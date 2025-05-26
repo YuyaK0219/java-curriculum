@@ -1,7 +1,6 @@
 package curriculum1_30;
 
 public class Person {
-	
     // フィールド（インスタンス変数）
     String name;
     int age;
@@ -22,13 +21,14 @@ public class Person {
 
     // BMIを計算して返すメソッド（戻り値：double）
     double bmi() {
-        return weight / (height * height);
+        double rawBmi =  weight / (height * height);
+        return Math.floor(rawBmi * 1) / 1.0;
     }
 
     // 自己紹介とBMIを出力するメソッド（戻り値なし）
     void print() {
         System.out.println("名前は" + this.name + "です");
         System.out.println("年は" + this.age + "才です");
-        System.out.printf("BMIは%.1fです\n", this.bmi());
+        System.out.printf("BMIは%.1fです\n", this.bmi()); // ← こっちは四捨五入のまま
     }
 }
