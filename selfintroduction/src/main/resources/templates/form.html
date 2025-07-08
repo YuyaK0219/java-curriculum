@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<meta charset="UTF-8">
+	<title>TODO編集</title>
+</head>
+
+<body>
+	<h1>TODO編集</h1>
+
+	<div class="edit-form-wrapper">
+		<form th:action="@{/save}" method="post" th:object="${todo}">
+			<input type="hidden" th:field="*{id}" />
+			<div>
+				<label>タイトル：</label>
+				<input type="text" th:field="*{title}" />
+			</div>
+			<div>
+				<label>内容：</label>
+				<textarea th:field="*{description}"></textarea>
+			</div>
+			<div>
+				<label>名前：</label>
+				<input type="text" th:field="*{name}" />
+			</div>
+			<div>
+				<label>開始日：</label>
+				<input type="date" th:field="*{startDate}" />
+			</div>
+			<div>
+				<label>終了日：</label>
+				<input type="date" th:field="*{endDate}" />
+			</div>
+			<div class="center-body">
+				<button type="submit" class="btn">登録</button>
+				<a th:href="@{/list}" class="btn btn-secondary">戻る</a>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

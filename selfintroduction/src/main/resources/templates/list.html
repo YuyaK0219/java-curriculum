@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>TODOリスト</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<script th:src="@{/js/main.js}" defer></script>
+</head>
+
+<body>
+	<h1>TODOリスト</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>タイトル</th>
+				<th>名前</th>
+				<th>終了日</th>
+				<th>状態</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="todo : ${todos}" 
+			th:attr="data-description=${todo.description}"
+			onmouseover="showTooltip(event, this)"
+			onmouseout="hideTooltip()">
+				<td th:text="${todo.id}"></td>
+				<td th:text="${todo.title}"></td>
+				<td th:text="${todo.name}"></td>
+				<td th:text="${todo.endDate}"></td>
+				<td>
+					<span th:if="${todo.completed}" style="color:green;">完了済み</span>
+					<span th:unless="${todo.completed}" style="color:red;">未完了</span>
+				</td>
+				<td>
+					<form th:action="@{/save}" method="get" style="display:inline;">
+						<input type="hidden" name="id" th:value="${todo.id}" />
+						<button type="submit">編集</button>
+					</form>
+					<form th:if="${!todo.completed}" th:action="@{/complete}" method="post" style="display:inline;">
+						<input type="hidden" name="id" th:value="${todo.id}" />
+						<button type="submit">完了</button>
+					</form>
+					<form th:action="@{/delete}" method="post" style="display:inline;">
+						<input type="hidden" name="id" th:value="${todo.id}" />
+						<button type="submit">削除</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="center-body">
+		<a th:href="@{/save}" class="btn">新規登録</a>
+		<a th:href="@{/}" class="btn">TOPページに戻る</a>
+	</div>
+
+	<div id="tooltip"></div>
+</body>
+
+</html>

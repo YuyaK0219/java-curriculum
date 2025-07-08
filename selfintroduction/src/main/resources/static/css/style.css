@@ -1,0 +1,178 @@
+/* 共通設定 */
+body {
+    font-family: "Helvetica Neue", sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    color: #333;
+}
+
+/* TOPページだけ中央寄せしたいときは、bodyにこのクラスを付ける */
+.center-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	gap: 2rem;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
+
+/* 中央寄せ用ラッパー */
+.center-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* ボタンの配置 */
+.center-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* 見出し */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+/* フォームや表 */
+form, table {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* 通常ボタン */
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* aタグリンク */
+a {
+    color: #3498db;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* テーブル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+}
+
+th, td {
+    padding: 0.8rem;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+/* POST用フォーム */
+form[method="post"] {
+    display: inline;
+}
+
+/* ボタンクラス（共通） */
+.btn {
+    background-color: #3498db;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    display: inline-block;
+    text-align: center;
+    margin-right: 0.5rem;
+    font-size: 0.7rem;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+/* セカンダリーボタン */
+.btn-secondary {
+    background-color: white;
+    color: #3498db;
+    border: 1px solid #3498db;
+}
+
+.btn-secondary:hover {
+    background-color: #ecf5fb;
+}
+
+.edit-form-wrapper {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#tooltip {
+    position: absolute;
+    background-color: #fff;
+    color: #333;
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 0.9rem;
+    max-width: 300px;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 表示状態 */
+#tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
