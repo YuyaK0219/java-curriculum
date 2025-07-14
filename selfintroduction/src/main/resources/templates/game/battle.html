@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>バトル画面</title>
+    <link rel="stylesheet" th:href="@{/css/battle.css}">
+</head>
+<body>
+<div class="battle-container">
+    <h2>⚔️ バトル開始！</h2>
+
+    <div class="container">
+        <div class="left">
+            <div class="status-box enemy">
+                <h3 th:text="'Enemy：' + ${enemy.name} + '（Lv.' + ${enemy.level} + '）'"></h3>
+                <p>
+                    HP：<span id="enemyHpValue" th:text="${enemy.hp} + '/' + ${enemy.maxHp}"></span>
+                    <div class="bar-outer">
+                        <div id="enemyHpBar" class="bar-inner hp"></div>
+                    </div>
+                </p>
+                <p th:text="'ATK：' + ${enemy.atk}"></p>
+            </div>
+
+            <div class="player-and-skills" style="display: flex; gap: 30px;">
+                <div class="status-box player">
+                    <h3 th:text="'Player：' + ${player.name} + '（Lv.' + ${player.level} + '）'"></h3>
+
+                    <!-- HPゲージ -->
+                    <p>
+                        HP：<span id="hpValue" th:text="${player.hp} + '/' + ${player.maxHp}"></span>
+                        <div class="bar-outer">
+                            <div id="hpBar" class="bar-inner hp"
+                                 th:classappend="${player.hp} < ${player.maxHp} * 0.3 ? ' low-hp' : ''"></div>
+                        </div>
+                    </p>
+
+                    <!-- MPゲージ -->
+                    <p>
+                        MP：<span id="mpValue" th:text="${player.mp} + '/' + ${player.maxMp}"></span>
+                        <div class="bar-outer">
+                            <div id="mpBar" class="bar-inner mp"></div>
+                        </div>
+                    </p>
+
+                    <p th:text="'ATK：' + ${player.atk}"></p>
+                    <p th:text="'MATK：' + ${player.matk}"></p>
+                    <p th:text="'ComboRate：' + ${player.comboRate} + '%'"></p>
+                    <p th:text="'CriticalRate：' + ${player.criticalRate} + '%'"></p>
+                    <p th:text="'AvoidRate：' + ${player.avoidRate} + '%'"></p>
+                    <div class="extra-passive" th:utext="${player.extraPassivesDisplay}"></div>
+
+                    <p>
+                        <span th:text="'EXP：' + ${player.exp} + '/' + ${player.expToNextLevel}"></span>
+                        <span th:if="${player.lastGainedExp > 0}" class="exp-gain" th:text="' ＋' + ${player.lastGainedExp}"></span>
+                    </p>
+                    <p th:if="${player.lastGainedExp > 0 and player.exp == 0}" class="level-up">🎉 レベルアップ！</p>
+                    <p th:text="'勝利数：' + ${player.wins}"></p>
+                </div>
+
+                <!-- スキル/終了ボタン -->
+                <div>
+                    <div class="action-box" th:if="${isFinished == null or !isFinished}">
+                        <form th:action="@{/game/attack}" method="post">
+                            <h4>🎯 スキル</h4>
+							<div th:each="skill : ${player.skills}" style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+							    <button class="skill-button" type="submit" name="action"
+							            th:value="${skill.name}"
+							            th:text="${skill.name + '（MP' + skill.mp + '）'}"
+							            th:disabled="${player.mp} &lt; ${skill.mp}">
+							    </button>
+							    <span class="skill-note" th:if="${skill.note}" th:text="' - ' + ${skill.note}"></span>
+							</div>
+                        </form>
+
+                        <form th:action="@{/game/useItem}" method="post">
+                            <button class="item-button" type="submit" th:disabled="${player.usedRecovery}">
+                                💊 回復アイテム使用
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- 終了ボタン -->
+                    <div class="action-box" th:if="${isFinished}" style="margin-top: 60px;">
+                        <form th:action="@{/game/continue}" method="post">
+                            <button class="next-button" type="submit" th:if="${player.hp > 0}">▶ 次の戦闘へ</button>
+                        </form>
+                        <form th:action="@{/game/end}" method="post" style="margin-top: 30px">
+                            <button class="end-button" type="submit">🏁 終了</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右：ログ -->
+        <div class="right">
+            <h3>📜 バトルログ</h3>
+            <div class="log-box" id="logBox">
+                <p th:each="line : ${logLines}" th:utext="${line}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JS -->
+<script th:src="@{/js/battle.js}"></script>
+</body>
+</html>

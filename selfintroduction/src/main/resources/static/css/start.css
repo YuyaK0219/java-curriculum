@@ -1,0 +1,127 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0f4ff, #d0e6ff);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 80px auto;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    overflow-x: auto; /* ★ テーブルはみ出し対策 */
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-size: 16px;
+    text-align: left;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #3399ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #287acc;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.job-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.job-buttons button {
+    flex: 1 1 40%;
+    padding: 12px;
+    background-color: #6666ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.job-buttons button:hover {
+    background-color: #4d4dd1;
+}
+
+/* ▼ ステータス表ラッパー（はみ出し防止） ▼ */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 30px;
+}
+
+/* ▼ ステータス表本体 ▼ */
+.status-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 650px;  /* 必要に応じて調整 */
+}
+
+.status-table th,
+.status-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap;  /* 折り返さない */
+}
+
+.status-table th {
+    background-color: #e0ebff;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.status-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.status-table tr:hover {
+    background-color: #f1f7ff;
+}

@@ -1,0 +1,296 @@
+body {
+    background: linear-gradient(145deg, #1a1a1a, #2c2c2c);
+    color: #f0f0f0;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #f7d774;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ステータス情報 */
+.left {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #444;
+}
+
+.left h3 {
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #7dd3fc;
+}
+
+.left p {
+    margin: 4px 0;
+}
+
+/* プレイヤー情報とスキル操作を横並び */
+.player-and-skills {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+/* ゲージ共通 */
+.bar-outer {
+    width: 100%;
+    height: 16px;
+    background-color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 4px 0 10px;
+    box-shadow: inset 0 0 4px #000;
+}
+
+.bar-inner {
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* HPゲージ（赤） */
+.bar-inner.hp {
+    background-color: #e3342f;
+}
+
+/* MPゲージ（青） */
+.bar-inner.mp {
+    background-color: #3490dc;
+}
+
+/* ボタン共通 */
+button {
+    padding: 10px 20px;
+    margin: 6px 6px 6px 0;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+    font-weight: bold;
+}
+
+button:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background-color: #444;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+/* スキルボタン */
+.skill-button {
+    background-color: #3490dc;
+    color: #fff;
+    padding: 6px 10px;        /* ← 小さめに調整 */
+    font-size: 10.5px;        /* ← 少し縮小 */
+    white-space: nowrap;     /* ← 折り返し防止 */
+    border-radius: 6px;
+    min-width: 140px;         /* ← 幅を制限して詰まり回避 */
+}
+
+.skill-button:hover:not(:disabled) {
+    background-color: #2779bd;
+}
+
+.skill-note {
+    color: #ddd;
+    font-size: 12px;
+    margin-left: 8px;
+    white-space: nowrap;     /* 説明文も改行させない */
+}
+/* 回復ボタン */
+.item-button {
+    background-color: #38c172;
+    color: #fff;
+}
+
+.item-button:hover:not(:disabled) {
+    background-color: #2f9e60;
+}
+
+/* 続行ボタン */
+.next-button {
+    background-color: #9561e2;
+    color: #fff;
+}
+
+.next-button:hover {
+    background-color: #7e45c6;
+}
+
+/* 終了ボタン */
+.end-button {
+    background-color: #e3342f;
+    color: #fff;
+}
+
+.end-button:hover {
+    background-color: #cc1f1a;
+}
+
+/* スキルの説明テキスト */
+.skill-note {
+    color: #ddd;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+/* EXP・レベルアップ表現 */
+.exp-gain {
+    color: #00ff90;
+    font-weight: bold;
+}
+
+.level-up {
+    color: #ffa500;
+    font-weight: bold;
+}
+
+/* ログ表示 */
+.right {
+    flex: 1.2;
+    background-color: #ffffff;
+    border: 1px solid #555;
+    border-radius: 12px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 600px;
+    color: #000000;
+}
+
+.right h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #fbbf24;
+    border-bottom: 1px solid #444;
+    padding-bottom: 6px;
+}
+
+/* ログ内テキストスタイル強化 */
+.log-box {
+    font-family: 'Noto Sans JP', 'Segoe UI', 'Meiryo', sans-serif;
+    font-size: 14px;
+    white-space: pre-wrap;
+    line-height: 0.5;
+    overflow-y: auto;
+    max-height: 520px;
+    padding-right: 10px;
+    scroll-behavior: smooth;
+}
+
+.log-box p {
+    margin: 4px 0;
+    padding: 6px 10px;
+    border-radius: 6px;
+    word-break: break-word;
+}
+
+/* プレイヤーの行動ログ */
+.log-box p.player-action {
+    background-color: #e6f7ff;
+    color: #003366;
+}
+
+/* 敵の行動ログ */
+.log-box p.enemy-action {
+    background-color: #ffeaea;
+    color: #660000;
+}
+
+/* ダメージログ */
+.log-box p.damage {
+    font-weight: bold;
+    color: #cc0000;
+}
+
+/* 回復ログ */
+.log-box p.heal {
+    color: #006600;
+    background-color: #e8fbe8;
+}
+
+/* レベルアップログ */
+.log-box p.levelup {
+    background-color: #fff6e0;
+    color: #8a5a00;
+    font-weight: bold;
+}
+
+/* 汎用通知ログ */
+.log-box p.notice {
+    background-color: #f5f5f5;
+    color: #222;
+    font-style: italic;
+}
+
+/* スキル操作ボックス調整（右寄せ用） */
+.action-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #1f1f1f;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    max-width: 280px;
+}
+
+/* 終了時ボタン群も右側に整列 */
+.battle-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #1f1f1f;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    max-width: 280px;
+}
+
+.extra-passive {
+    color: #facc15; /* 明るい黄色（Tailwindのyellow-400相当） */
+    font-weight: bold;
+}
+
+.green {
+    color: green;
+    font-weight: bold;
+}
+
+.pink-deep {
+    color: #e91e63;  /* 濃いピンク色（Material DesignのPink 500） */
+    font-weight: bold;
+}
+
+.low-hp {
+    background-color: deeppink !important;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.4; }
+    100% { opacity: 1; }
+}

@@ -1,0 +1,31 @@
+<!-- templates/game/result.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>冒険結果</title>
+    <link rel="stylesheet" th:href="@{/css/result.css}">
+</head>
+<body>
+<div class="result-container">
+    <h2>🎉 冒険の記録</h2>
+
+    <ul class="result-list">
+        <li th:text="'名前：' + ${result.name}"></li>
+        <li th:text="'職業：' + ${result.job}"></li>
+        <li th:text="'レベル：' + ${result.level}"></li>
+        <li th:text="'連勝数：' + ${result.wins}"></li>
+    </ul>
+
+    <div class="button-group">
+        <form th:action="@{/ranking}" method="get">
+            <button type="submit" class="action-button">🏆 ランキングを見る</button>
+        </form>
+
+        <form th:action="@{/}" method="get">
+            <button type="submit" class="action-button">🏠 TOPへ戻る</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

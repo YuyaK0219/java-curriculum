@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>プレイヤー設定</title>
+    <link rel="stylesheet" th:href="@{/css/start.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Enter Player Info</h2>
+
+    <p th:if="${error}" th:text="${error}" class="error"></p>
+
+    <form th:action="@{/game/selectJob}" method="post">
+        <label>Name：
+            <input type="text" name="playerName" required>
+        </label>
+
+        <p>Select Your Job：</p>
+        <div class="job-buttons">
+            <button type="submit" name="job" value="WARRIOR">🗡️ WARRIOR</button>
+            <button type="submit" name="job" value="ARCHER">🏹 ARCHER</button>
+            <button type="submit" name="job" value="FIGHTER">🥊 FIGHTER</button>
+            <button type="submit" name="job" value="MAGE">🔮 MAGE</button>
+            <button type="submit" name="job" value="TEST">🧪 TEST</button>
+        </div>
+    </form>
+
+    <h3 style="margin-top: 40px;">Status Range by Job</h3>
+    <div class="table-wrapper">
+        <table class="status-table">
+            <thead>
+                <tr>
+                    <th style="min-width: 100px;">Job</th>
+                    <th style="min-width: 90px;">HP</th>
+                    <th style="min-width: 90px;">MP</th>
+                    <th style="min-width: 90px;">ATK</th>
+                    <th style="min-width: 90px;">MATK</th>
+                    <th style="min-width: 100px;">Combo</th>
+                    <th style="min-width: 100px;">Critical</th>
+                    <th style="min-width: 90px;">Avoid</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="entry : ${T(com.example.todo.game.util.PlayerStatusProvider).getAllJobStats().entrySet()}">
+                    <td th:switch="${entry.key}">
+                        <span th:case="'WARRIOR'">🗡️ WARRIOR</span>
+                        <span th:case="'ARCHER'">🏹 ARCHER</span>
+                        <span th:case="'FIGHTER'">🥊 FIGHTER</span>
+                        <span th:case="'MAGE'">🔮 MAGE</span>
+                        <span th:case="'TEST'">🧪 TEST</span>
+                        <span th:case="*"
+                              th:text="${entry.key}">UNKNOWN</span>
+                    </td>
+                    <td th:text="${entry.value['HP']}">HP</td>
+                    <td th:text="${entry.value['MP']}">MP</td>
+                    <td th:text="${entry.value['ATK']}">ATK</td>
+                    <td th:text="${entry.value['MATK']}">MATK</td>
+                    <td th:text="${entry.value['連続攻撃']}">Combo</td>
+                    <td th:text="${entry.value['クリティカル']}">Critical</td>
+                    <td th:text="${entry.value['回避率']}">Avoid</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

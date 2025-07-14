@@ -1,0 +1,24 @@
+<!-- templates/game/top.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ゲームTOP</title>
+    <link rel="stylesheet" th:href="@{/css/top.css}">
+</head>
+<body>
+<div class="top-container">
+    <h1>🌟 RPGゲームへようこそ！ 🌟</h1>
+    <p>君の冒険が今、始まる——</p>
+
+    <div class="button-group">
+        <form action="/game/start" method="get">
+            <button type="submit">▶ ゲームを始める</button>
+        </form>
+        <form action="/ranking" method="get">
+            <button type="submit">🏆 ランキングを見る</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

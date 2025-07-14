@@ -1,0 +1,29 @@
+<!-- templates/game/status.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ステータス確認</title>
+    <link rel="stylesheet" th:href="@{/css/status.css}">
+</head>
+<body>
+<div class="status-container">
+    <h2 th:text="'冒険者：' + ${player.name} + '（' + ${player.job} + '）'"></h2>
+
+    <ul class="status-list">
+        <li th:text="'Lv：' + ${player.level}"></li>
+        <li th:text="'HP：' + ${player.hp} + '/' + ${player.maxHp}"></li>
+        <li th:text="'MP：' + ${player.mp} + '/' + ${player.maxMp}"></li>
+        <li th:text="'ATK：' + ${player.atk}"></li>
+        <li th:text="'MATK：' + ${player.matk}"></li>
+        <li th:text="'連続攻撃率：' + ${player.comboRate} + '%'"></li>
+        <li th:text="'回避率：' + ${player.avoidRate} + '%'"></li>
+        <li th:text="'クリティカル率：' + ${player.criticalRate} + '%'"></li>
+    </ul>
+
+    <form th:action="@{/game/battle}" method="get">
+        <button type="submit" class="battle-button">戦闘開始！▶</button>
+    </form>
+</div>
+</body>
+</html>

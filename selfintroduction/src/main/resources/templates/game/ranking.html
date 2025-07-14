@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ランキング</title>
+    <link rel="stylesheet" th:href="@{/css/ranking.css}">
+</head>
+<body>
+<div class="ranking-container">
+    <h2>🏆 ランキング上位10人</h2>
+
+    <div th:if="${#lists.isEmpty(rankingList)}">
+        <p>まだランキング情報がありません。</p>
+    </div>
+
+    <table class="ranking-table" th:if="${not #lists.isEmpty(rankingList)}">
+        <thead>
+        <tr>
+            <th>順位</th>
+            <th>名前</th>
+            <th>職業</th>
+			<th>連勝数</th>
+            <th>レベル</th>
+            <th>削除</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="rank, iStat : ${rankingList}">
+            <td th:text="${iStat.index + 1}">1</td>
+            <td th:text="${rank.playerName}">名前</td>
+            <td th:text="${rank.job}">職業</td>
+			<td th:text="${rank.wins}">連勝数</td>
+            <td th:text="${rank.level}">レベル</td>
+            <td>
+                <form th:action="@{/ranking/delete}" method="post">
+                    <input type="hidden" name="id" th:value="${rank.id}" />
+                    <button type="submit" class="delete-button">削除</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form th:action="@{/}" method="get" class="back-button">
+        <button type="submit">TOPへ戻る</button>
+    </form>
+</div>
+</body>
+</html>
